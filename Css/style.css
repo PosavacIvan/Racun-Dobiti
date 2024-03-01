@@ -163,7 +163,7 @@ html {
   font-family: helvetica, arial, sans-serif;
   text-transform: uppercase;
   font-weight: 900;
-  color: #ce4233;
+  color: #c0392b;
   letter-spacing: 0.2em;
 }
 
@@ -215,38 +215,151 @@ body {
 }
 
 /* header starts here */
-.header{
-  background: linear-gradient(to right, #363636, #626262);
+.header {
+  background: linear-gradient(to right, #232323, #626262);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  padding-left: 3%;
-  padding-right: 7%;
-  border-bottom: #fff;
+  padding: 1.5rem 7%;
+  border-bottom: 1px solid #fff;
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   height: 6rem;
 }
 
-.header .logo img{
-  height: 13rem;
-  margin-top: 1px;
-  margin-left: 1px;
+.header .logo img {
+  height: 15rem;
 }
 
-.header .icons i{
+.header .icons i {
   color: #fff;
   cursor: pointer;
   font-size: 2.5rem;
   margin-left: 2rem;
 }
 
-.header .icons i:hover{
+.header .icons i:hover {
   color: #A04541;
 }
 
-/* header ends here */
+/* Stilovi za drop-down */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
+.dropbtn {
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  left: 50%; /* Postavite poziciju na sredinu */
+  transform: translateX(-50%); /* Centrirajte prema sredini */
+}
+
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+#menu-btn {
+  display: none;
+  /* Gumb se inicijalno skriva */
+  color: #fff;
+  cursor: pointer;
+  font-size: 2.5rem;
+}
+
+@media (max-width: 991px) {
+  .header {
+    padding: 1.5rem 2rem;
+  }
+
+  @media (max-width: 992px) {
+    .dropdown-content {
+      display: none;
+    }
+
+  }
+
+  /* Sakrij ikonu strelice drop-downa dok se ne aktivira padajući izbornik */
+  #dropdown-btn::after {
+    display: none;
+  }
+
+  /* Prikaži ikonu strelice drop-downa samo na manjim ekranima */
+  @media (max-width: 992px) {
+    #dropdown-btn::after {
+      display: inline-block;
+    }
+  }
+
+  /* Sakrij ikonu strelice drop-downa sve dok padajući izbornik nije aktiviran */
+  #dropdown-content {
+    display: none;
+  }
+
+  /* Prikaži ikonu strelice drop-downa samo kada je padajući izbornik aktiviran */
+  #dropdown-btn:focus+#dropdown-content,
+  #dropdown-content:hover {
+    display: block;
+  }
+
+  /* Prikaži ikonu strelice drop-downa samo na manjim ekranima */
+  @media (min-width: 992px) {
+    #dropdown-content {
+      display: block;
+    }
+  }
+
+  .header .icons {
+    display: none;
+  }
+
+  #menu-btn {
+    display: inline-block;
+    /* Prikaži gumb samo na manjim ekranima */
+    margin-right: 2rem;
+  }
+}
+
+/* Sakrij ikonu izbornika na početku */
+.dropbtn .fa-bars {
+  display: none;
+  font-size: 2.5rem;
+}
+
+/* Prikaži ikonu izbornika samo na manjim ekranima */
+@media (max-width: 992px) {
+  .dropbtn .fa-bars {
+    display: inline;
+    /* Prikaži ikonu */
+  }
+}
+
+/* header ends here */
